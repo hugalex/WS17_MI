@@ -1,8 +1,1 @@
-﻿  HitTheEdge.cpp
-HitTheEdge.cpp(22): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
-HitTheEdge.cpp(23): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
-HitTheEdge.cpp(36): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-  Main.cpp
-  Code wird generiert...
-  HitTheEdge.vcxproj -> D:\2017ws-mi_praktikum\Exercises\Exercise 1\x64\Debug\01 HitTheEdge.exe
-  HitTheEdge.vcxproj -> D:\2017ws-mi_praktikum\Exercises\Exercise 1\x64\Debug\01 HitTheEdge.pdb (Full PDB)
+﻿
