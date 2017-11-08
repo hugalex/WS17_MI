@@ -41,6 +41,7 @@ void DummyT::transform (ITransformer::info info, ssi_stream_t &stream_in, ssi_st
 	{
 		for (int i = 0; i< stream_in.dim; i++)
 		{
+
 			if (!_options.flag)
 				out[out_index++] = in[j*stream_in.dim + i]; //simply copy input to output
 			else
