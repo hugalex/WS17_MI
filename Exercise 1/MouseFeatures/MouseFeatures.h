@@ -3,6 +3,7 @@
 
 #include "base/IFeature.h"
 #include "ioput/option/OptionList.h"
+#include <math.h>
 
 using namespace ssi;
 
@@ -17,11 +18,11 @@ public:
 		Options() {
 			frame_min_x = true;
 			frame_max_x = true;
-			frame_avaerage_x = true;
+			frame_average_x = true;
 
 			frame_min_y = true;
 			frame_max_y = true;
-			frame_avaerage_y = true;
+			frame_average_y = true;
 
 			global_min_x = true;
 			global_max_x = true;
@@ -38,11 +39,11 @@ public:
 
 			addOption("frame_min_x", &frame_min_x, 1, SSI_BOOL, "compute frame_min_x");
 			addOption("frame_max_x", &frame_max_x, 1, SSI_BOOL, "compute frame_max_x");
-			addOption("frame_avaerage_x", &frame_avaerage_x, 1, SSI_BOOL, "compute frame_avaerage_x");
+			addOption("frame_avaerage_x", &frame_average_x, 1, SSI_BOOL, "compute frame_average_x");
 
 			addOption("frame_min_y", &frame_min_y, 1, SSI_BOOL, "compute frame_min_y");
 			addOption("frame_max_y", &frame_max_y, 1, SSI_BOOL, "compute frame_max_y");
-			addOption("frame_avaerage_y", &frame_avaerage_y, 1, SSI_BOOL, "compute frame_avaerage_y");
+			addOption("frame_avaerage_y", &frame_average_y, 1, SSI_BOOL, "compute frame_average_y");
 
 			addOption("global_min_x", &global_min_x, 1, SSI_BOOL, "compute global_min_x");
 			addOption("global_max_x", &global_max_x, 1, SSI_BOOL, "compute global_max_x");
@@ -60,11 +61,11 @@ public:
 
 		bool frame_min_x;
 		bool frame_max_x;
-		bool frame_avaerage_x;
+		bool frame_average_x;
 
 		bool frame_min_y;
 		bool frame_max_y;
-		bool frame_avaerage_y;
+		bool frame_average_y;
 
 		bool global_min_x;
 		bool global_max_x;
@@ -95,10 +96,56 @@ public:
 
 	// TODO
 	ssi_size_t getSampleDimensionOut(ssi_size_t sample_dimension_in) {
-		if (_options.distance == true) {
-
+		sample_dimension_in = 0;
+		if (_options.frame_min_x) {
+			sample_dimension_in++;
 		}
-		return sample_dimension_in; //what sample dimesnion does your component return?
+		if (_options.frame_max_x) {
+			sample_dimension_in++;
+		}
+		if (_options.frame_average_x) {
+			sample_dimension_in++;
+		}
+		if (_options.frame_min_y) {
+			sample_dimension_in++;
+		}
+		if (_options.frame_max_y) {
+			sample_dimension_in++;
+		}
+		if (_options.frame_average_y) {
+			sample_dimension_in++;
+		}
+		if (_options.global_min_x) {
+			sample_dimension_in++;
+		}
+		if (_options.global_max_x) {
+			sample_dimension_in++;
+		}
+		if (_options.global_average_x) {
+			sample_dimension_in++;
+		}
+		if (_options.global_min_y) {
+			sample_dimension_in++;
+		}
+		if (_options.global_max_y) {
+			sample_dimension_in++;
+		}
+		if (_options.global_average_y) {
+			sample_dimension_in++;
+		}
+		if (_options.distance) {
+			sample_dimension_in++;
+		}
+		if (_options.velocity) {
+			sample_dimension_in++;
+		}
+		if (_options.variability) {
+			sample_dimension_in += 2;
+		}
+		if (_options.standard_deviation) {
+			sample_dimension_in += 2;
+		}
+		return sample_dimension_in; //what sample dimesnion does your component return? --> hängt von ausgewählten Optionen ab
 	};
 	ssi_size_t getSampleBytesOut(ssi_size_t sample_bytes_in) {
 		return sample_bytes_in; //what sample bytes does your component return?

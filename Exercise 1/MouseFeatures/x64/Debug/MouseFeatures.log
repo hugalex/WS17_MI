@@ -1,7 +1,0 @@
-﻿  Main.cpp
-  MouseFeatures.cpp
-MouseFeatures.cpp(41): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-MouseFeatures.cpp(43): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-  Code wird generiert...
-  MouseFeatures.vcxproj -> D:\2017ws-mi_praktikum\Exercises\Exercise 1\x64\Debug\02 MouseFeatures.exe
-  MouseFeatures.vcxproj -> D:\2017ws-mi_praktikum\Exercises\Exercise 1\x64\Debug\02 MouseFeatures.pdb (Full PDB)
